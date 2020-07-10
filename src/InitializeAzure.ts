@@ -6,6 +6,7 @@ import Constants from "./Constants";
 export default class InitializeAzure {
     static async importAzModule(azPSVersion: string) {
         Utils.setPSModulePath();
+        await Utils.getLatestModule(Constants.moduleName)
         /* if (azPSVersion === "latest") {
             azPSVersion = await Utils.getLatestModule(Constants.moduleName);
         } else {

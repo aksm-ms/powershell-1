@@ -47,11 +47,12 @@ export default class Utils {
         if (!(Constants.Success in outputJson)) {
             throw new Error(outputJson[Constants.Error]);
         }
-        const azLatestVersion: string = outputJson[Constants.AzVersion];
+        /* const azLatestVersion: string = outputJson[Constants.AzVersion];
         if (!Utils.isValidVersion(azLatestVersion)) {
             throw new Error(`Invalid AzPSVersion: ${azLatestVersion}`);
         }
-        return azLatestVersion;
+        return azLatestVersion; */
+        return '';
     }
 
     static async checkModuleVersion(moduleName: string, version: string) {

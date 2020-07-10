@@ -7,13 +7,13 @@ export default class ScriptBuilder {
     script: string = "";
 
     getLatestModuleScript(moduleName: string): string {
-        const command: string = `Get-Module -Name ${moduleName} -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1`;
+        // const command: string = `Get-Module -Name ${moduleName} -ListAvailable | Sort-Object Version -Descending | Select-Object -First 1`;
+        const command: string = `Import-Module -Name ${moduleName}`;
         this.script += `try {
             $ErrorActionPreference = "Stop"
             $WarningPreference = "SilentlyContinue"
             $output = @{}
-            $data = ${command}
-            $output['${Constants.AzVersion}'] = $data.Version.ToString()
+            ${command}
             $output['${Constants.Success}'] = "true"
         }
         catch {
